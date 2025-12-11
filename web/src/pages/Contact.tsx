@@ -1,6 +1,6 @@
 import React from "react";
 import { Mail, MapPin, Phone, Github, Code2, ExternalLink } from "lucide-react";
-
+import MapSection from "./MapSection.tsx";
 const Contact: React.FC = () => {
   return (
     <section id="iletisim" className="py-12 lg:py-20 bg-gray-50 relative">
@@ -113,11 +113,7 @@ const Contact: React.FC = () => {
 
         {/* --- ALT BÖLÜM: HARİTA (Tam Genişlik) --- */}
         <div className="w-full h-64 md:h-80 bg-gray-200 rounded-2xl overflow-hidden shadow-sm border border-gray-200 relative group">
-          <img 
-              src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop" 
-              alt="Bursa Harita Temsili" 
-              className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
-          />
+          <MapSection />
           {/* Harita Üzeri Bilgi Çubuğu */}
           <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm border border-white/50 text-xs font-semibold text-gray-700 flex items-center gap-2">
             <MapPin size={14} className="text-red-500" />

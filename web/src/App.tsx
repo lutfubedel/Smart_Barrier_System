@@ -65,6 +65,7 @@ const App: React.FC = () => {
         <section >
           <Contact />
         </section>
+        
 
         
       </main>

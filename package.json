@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@vitejs/plugin-react": "^5.1.2",
+    "lucide-react": "^0.560.0",
+    "react-helmet-async": "^2.0.5"
+  }
+}
