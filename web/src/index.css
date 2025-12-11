@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* index.css içine eklenecek */
+@layer utilities {
+  @keyframes traffic-down {
+    0% {
+      transform: translateY(-150%);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(250%);
+      opacity: 0;
+    }
+  }
+  @keyframes traffic-up {
+    0% {
+      transform: translateY(250%);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-150%);
+      opacity: 0;
+    }
+  }
+
+  .animate-traffic-down {
+    animation: traffic-down 2s linear infinite;
+  }
+  .animate-traffic-up {
+    animation: traffic-up 2s linear infinite;
+  }
+}
