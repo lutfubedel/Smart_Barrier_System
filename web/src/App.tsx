@@ -1,5 +1,7 @@
 import React, {useEffect,useState}from "react";
+
 import Navbar from "./components/navbar";
+import ChatWidget from "./components/ChatWidget";
 
 import HeroSection from "./pages/HeroSection";
 import ProblemSolution from "./pages/Problem&Solution";
@@ -45,7 +47,7 @@ const App: React.FC = () => {
     <>
       {/* Navbar bileşeni, aktif bölüme göre vurgulama yapabilir */}
       <Navbar activeSection={activeSection} />
-
+      <ChatWidget />
       <main className="min-h-screen snap-start">  
         <section id="anasayfa">
           <HeroSection />
