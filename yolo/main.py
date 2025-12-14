@@ -4,17 +4,16 @@ from ultralytics import YOLO
 import time
 
 # --- AYARLAR ---
-SKIP_RATE = 2
-CONFIDENCE = 0.35
-DISPLAY_WIDTH = 1280
+SKIP_RATE = 1
+CONFIDENCE = 0.25
 
 # --- YOĞUNLUK EŞİKLERİ ---
 LIMIT_LOW = 4
 LIMIT_MID = 10
 
 # --- GÜNCEL YAYIN LİNKİ ---
-# SOURCE_URL = "https://canliyayin.bursa.bel.tr/cdnlive/10_100_66_18.stream/chunklist_w1124601795.m3u8?t=wVlXPoe3GNO6phT1nTDYqw&e=1769216049"
 SOURCE_URL = "vehicle-counting.mp4"
+OUTPUT_FILENAME = "trafik_analiz_sonucu.mp4" # Kaydedilecek dosya adı
 
 # --- RENK PALETİ (BGR) ---
 COLOR_LEFT = (255, 191, 0)
@@ -28,11 +27,24 @@ COLOR_WHITE = (255, 255, 255)
 print("Model yükleniyor...")
 model = YOLO('yolov8n.pt')
 
-print(f"Yayına bağlanılıyor: {SOURCE_URL}")
+print(f"Video kaynağı okunuyor: {SOURCE_URL}")
 cap = cv2.VideoCapture(SOURCE_URL, cv2.CAP_FFMPEG)
 
-window_name = "Trafik Analiz - Kompakt Panel"
-cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+# --- VİDEO KAYIT AYARLARI ---
+# Videonun orijinal genişlik, yükseklik ve FPS değerlerini alıyoruz
+frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+original_fps = cap.get(cv2.CAP_PROP_FPS)
+
+# Eğer FPS okunamazsa varsayılan 30 yap
+if original_fps == 0:
+    original_fps = 30
+
+print(f"Kayıt başlatılıyor... Çözünürlük: {frame_width}x{frame_height}, FPS: {original_fps}")
+
+# MP4 formatında kayıt için codec tanımlaması
+fourcc = cv2.VideoWriter_fourcc(*'mp4v') 
+out = cv2.VideoWriter(OUTPUT_FILENAME, fourcc, original_fps, (frame_width, frame_height))
 
 target_classes = [2, 3, 5, 7]
 
@@ -65,17 +77,14 @@ while True:
     ret, frame = cap.read()
 
     if not ret:
-        print("⚠️ Sinyal yok. Yeniden bağlanılıyor...")
-        cap.release()
-        time.sleep(2)
-        cap = cv2.VideoCapture(SOURCE_URL, cv2.CAP_FFMPEG)
-        continue
+        print("Video tamamlandı veya okunamadı.")
+        break
 
     frame_counter += 1
     height, width, _ = frame.shape
     mid_x = width // 2
 
-    # FPS
+    # FPS Hesaplama (Sistem işlem hızı için)
     new_frame_time = time.time()
     fps = 1 / (new_frame_time - prev_frame_time) if (new_frame_time - prev_frame_time) > 0 else 0
     prev_frame_time = new_frame_time
@@ -127,46 +136,42 @@ while True:
         cv2.rectangle(frame, (x1, y1), (x2, y2), box_color, 2, cv2.LINE_AA)
         cv2.putText(frame, f"#{track_id}", (x1, y1 - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.6, box_color, 2, cv2.LINE_AA)
 
-    # ==========================================
-    # 3. Gelişmiş Bilgi Paneli (KOMPAKT & NET)
-    # ==========================================
-    # Kutu boyutları küçültüldü (w:420->330, h:230->175) ve köşeye yaklaştırıldı (x,y: 10)
+    # 3. Bilgi Paneli
     box_x, box_y = 0, 0
     draw_transparent_box(frame, box_x, box_y, 330, 175, (0, 0, 0), alpha=0.85)
 
-    # Başlık (Font boyutu 0.7 -> 0.6)
     cv2.putText(frame, "BOLGESEL TRAFIK ANALIZI", (box_x + 15, box_y + 25), cv2.FONT_HERSHEY_DUPLEX, 0.6, COLOR_WHITE, 1, cv2.LINE_AA)
     cv2.line(frame, (box_x + 15, box_y + 35), (box_x + 315, box_y + 35), (150, 150, 150), 1, cv2.LINE_AA)
 
-    # --- SOL TARAF BİLGİLERİ ---
-    # Y koordinatları sıklaştırıldı. Font boyutları 0.6 yapıldı. Kalınlık 1'e düşürüldü (netlik için).
+    # Sol Taraf
     line_y_1 = box_y + 65
     cv2.putText(frame, "SOL SERIT", (box_x + 15, line_y_1), cv2.FONT_HERSHEY_SIMPLEX, 0.6, COLOR_LEFT, 1, cv2.LINE_AA)
     cv2.putText(frame, f"Arac: {instant_left}", (box_x + 130, line_y_1), cv2.FONT_HERSHEY_SIMPLEX, 0.6, COLOR_WHITE, 1, cv2.LINE_AA)
-    # Durum yazısı vurgulu kalsın (Kalınlık 2)
     cv2.putText(frame, status_text_L, (box_x + 230, line_y_1), cv2.FONT_HERSHEY_DUPLEX, 0.7, status_color_L, 2, cv2.LINE_AA)
 
-    # --- SAĞ TARAF BİLGİLERİ ---
+    # Sağ Taraf
     line_y_2 = box_y + 105
     cv2.putText(frame, "SAG SERIT", (box_x + 15, line_y_2), cv2.FONT_HERSHEY_SIMPLEX, 0.6, COLOR_RIGHT, 1, cv2.LINE_AA)
     cv2.putText(frame, f"Arac: {instant_right}", (box_x + 130, line_y_2), cv2.FONT_HERSHEY_SIMPLEX, 0.6, COLOR_WHITE, 1, cv2.LINE_AA)
     cv2.putText(frame, status_text_R, (box_x + 230, line_y_2), cv2.FONT_HERSHEY_DUPLEX, 0.7, status_color_R, 2, cv2.LINE_AA)
 
-    # Alt Bilgi (FPS)
+    # FPS Bilgisi
     line_y_3 = box_y + 135
     cv2.line(frame, (box_x + 15, line_y_3), (box_x + 315, line_y_3), (150, 150, 150), 1, cv2.LINE_AA)
-    # FPS boyutu 0.5 yapıldı
     cv2.putText(frame, f"Sistem FPS: {int(fps)}", (box_x + 15, line_y_3 + 25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (200, 200, 200), 1, cv2.LINE_AA)
-    # ==========================================
 
-    # --- GÖRÜNTÜLEME ---
-    scale = DISPLAY_WIDTH / width
-    resized_frame = cv2.resize(frame, (DISPLAY_WIDTH, int(height * scale)), interpolation=cv2.INTER_LINEAR)
+    # --- KAYIT İŞLEMİ (EKLENDİ) ---
+    # Kareyi dosyaya yaz
+    out.write(frame)
 
-    cv2.imshow(window_name, resized_frame)
+    # Kullanıcıya terminalden bilgi ver (Canlı izleme olmadığı için)
+    if frame_counter % 30 == 0:
+        print(f"Kare işleniyor: {frame_counter} (Anlık FPS: {int(fps)})")
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+    # Çıkış için 'q' yerine Ctrl+C kullanabilirsiniz, ancak döngü video bitince kendiliğinden duracak.
 
+# --- TEMİZLİK ---
+print("İşlem tamamlandı. Dosya kaydedildi.")
 cap.release()
+out.release() # VideoWriter'ı serbest bırakmak çok önemli!
 cv2.destroyAllWindows()
