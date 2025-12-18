@@ -1,8 +1,5 @@
 # 🚧 Smart Barrier System (Akıllı Bariyer Sistemi)
 
-![Project Banner](https://via.placeholder.com/1000x300?text=Smart+Barrier+System+Banner)
-*(Buraya projenin genel bir banner görselini veya sistemin çalışırken çekilmiş geniş bir fotoğrafını koyabilirsin)*
-
 ![Unity](https://img.shields.io/badge/Unity-2021.3%2B-black?style=flat&logo=unity)
 ![YOLOv8](https://img.shields.io/badge/AI-YOLOv8-blue?style=flat&logo=python)
 ![React](https://img.shields.io/badge/Web-React%20%7C%20TypeScript-61DAFB?style=flat&logo=react)
