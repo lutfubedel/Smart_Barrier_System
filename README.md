@@ -77,7 +77,7 @@ Aşağıdaki görsel, web tabanlı kontrol paneli üzerinden anlık trafik yoğu
 - Otomatik ve manuel bariyer kontrolü  
 - Karar mekanizmasının görsel çıktıları  
 
-![Web Dashboard & YOLOv8 Detection](https://via.placeholder.com/900x450?text=Web+Dashboard+%26+YOLOv8+Detection)
+![Web Dashboard & YOLOv8 Detection](./images/yolo-1.png)
 
 🔗 **Web Dashboard Linki:**  
 https://bursa-akilli-sehir-hackathon-projes.vercel.app/
