@@ -206,14 +206,6 @@ npm start
 
 ---
 
-## 📹 Video Tanıtımı
-
-Projenin tüm detaylarını ve çalışma mantığını anlattığım videoya aşağıdan ulaşabilirsiniz:
-
-[![Video Başlığı](https://img.youtube.com/vi/VIDEO_ID_BURAYA/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_BURAYA)
-
----
-
 ## 🤝 Katkıda Bulunma
 
 1.  Bu repoyu Fork'layın.
