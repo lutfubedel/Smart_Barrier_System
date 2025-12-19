@@ -70,30 +70,52 @@ graph LR
 
 ### 🌐 Web Dashboard & AI Tespiti
 
-Aşağıdaki görsel, web tabanlı kontrol paneli üzerinden anlık trafik yoğunluğu takibini ve YOLOv8 tabanlı araç tespit sürecini göstermektedir.
+Aşağıdaki görseller, web tabanlı kontrol paneli üzerinden anlık trafik yoğunluğu takibini ve  
+YOLOv8 tabanlı araç tespit sürecini göstermektedir.
 
 - Gerçek zamanlı trafik yoğunluğu analizi  
 - YOLOv8 ile araç tespiti ve sınıflandırma  
 - Otomatik ve manuel bariyer kontrolü  
 - Karar mekanizmasının görsel çıktıları  
 
-![Web Dashboard & YOLOv8 Detection](./images/yolo-1.png)
+<table>
+  <tr>
+    <td align="center">
+      <img src="./images/yolo-1.png" width="450"/>
+    </td>
+    <td align="center">
+      <img src="./images/yolo-2.png" width="450"/>
+    </td>
+  </tr>
+</table>
 
 🔗 **Web Dashboard Linki:**  
 https://bursa-akilli-sehir-hackathon-projes.vercel.app/
+
 
 ---
 
 ### 🎮 Unity Digital Twin Simülasyonu
 
-Aşağıdaki görsel, gerçek trafik verilerinin Unity 3D ortamında dijital ikiz (Digital Twin) yaklaşımıyla nasıl simüle edildiğini göstermektedir.
+Aşağıdaki görseller, gerçek trafik verilerinin Unity 3D ortamında  
+dijital ikiz (Digital Twin) yaklaşımıyla simüle edilmesini göstermektedir.
 
 - Dinamik şerit yönetimi  
 - Bariyer animasyonları  
 - Senaryo ve stres testleri  
 - Gerçek zamanlı veri entegrasyonu  
 
-![Unity Digital Twin Simulation](https://via.placeholder.com/900x450?text=Unity+Digital+Twin+Simulation)
+<table>
+  <tr>
+    <td align="center">
+      <img src="./images/simulation-1.png" width="450"/>
+    </td>
+    <td align="center">
+      <img src="./images/simulation-2.png" width="450"/>
+    </td>
+  </tr>
+</table>
+
 
 ---
 
