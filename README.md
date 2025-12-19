@@ -1,6 +1,4 @@
-# 🚧 Smart Barrier System (Akıllı Bariyer Sistemi)
-
-![Project Banner](https://via.placeholder.com/1000x300?text=Smart+Barrier+System+Banner)
+# Smart Barrier System (Akıllı Bariyer Sistemi)
 
 ![Unity](https://img.shields.io/badge/Unity-2021.3%2B-black?style=for-the-badge&logo=unity)
 ![YOLOv8](https://img.shields.io/badge/AI-YOLOv8-blue?style=for-the-badge&logo=python)
@@ -14,7 +12,7 @@ Bu proje, özellikle yoğun saatlerde (peak hours) trafik sıkışıklığını 
 
 ---
 
-## 🏗️ Sistem Mimarisi
+## Sistem Mimarisi
 
 Sistem, sahadan gelen verilerin işlenmesi, karar verilmesi ve fiziksel/dijital ortamlara yansıtılması prensibiyle çalışır.
 
