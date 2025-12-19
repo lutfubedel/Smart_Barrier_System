@@ -60,47 +60,46 @@ graph LR
 
 ---
 
-## 🎥 Demo, Videolar ve Sunum
+##  Demo, Ekran Görüntüleri ve Sunum
 
-> **Not:** Bu projede statik ekran görüntüleri yerine doğrudan demo videoları kullanılmıştır.  
-> Web arayüzü ve proje sunumu için ayrıca harici bağlantılar sağlanmıştır.
+> **Not:** Bu projede sistemin çalışma mantığı iki temel bileşen üzerinden görselleştirilmiştir:  
+> Web tabanlı kontrol paneli ve Unity tabanlı dijital ikiz simülasyonu.  
+> Proje sunumu ve canlı web arayüzü için harici bağlantılar sağlanmıştır.
 
 ---
 
 ### 🌐 Web Dashboard & AI Tespiti
 
-Bu bölümde, web tabanlı kontrol paneli üzerinden anlık trafik yoğunluğu takibi ve YOLOv8 tabanlı araç tespit süreci gösterilmektedir.
+Aşağıdaki görsel, web tabanlı kontrol paneli üzerinden anlık trafik yoğunluğu takibini ve YOLOv8 tabanlı araç tespit sürecini göstermektedir.
 
 - Gerçek zamanlı trafik yoğunluğu analizi  
 - YOLOv8 ile araç tespiti ve sınıflandırma  
 - Otomatik ve manuel bariyer kontrolü  
 - Karar mekanizmasının görsel çıktıları  
 
-🎬 **Demo Videosu:**  
-[https://www.youtube.com/watch?v=WEB_AI_DEMO_VIDEO_ID  ](https://raw.githubusercontent.com/lutfubedel/Smart_Barrier_System/main/yolo/trafik_analiz_sonucu.mp4)
+![Web Dashboard & YOLOv8 Detection](https://via.placeholder.com/900x450?text=Web+Dashboard+%26+YOLOv8+Detection)
 
 🔗 **Web Dashboard Linki:**  
-https://smart-barrier-demo-site-link  
+https://bursa-akilli-sehir-hackathon-projes.vercel.app/
 
 ---
 
 ### 🎮 Unity Digital Twin Simülasyonu
 
-Bu video, gerçek trafik verilerinin Unity 3D ortamında dijital ikiz (Digital Twin) yaklaşımıyla nasıl simüle edildiğini göstermektedir.
+Aşağıdaki görsel, gerçek trafik verilerinin Unity 3D ortamında dijital ikiz (Digital Twin) yaklaşımıyla nasıl simüle edildiğini göstermektedir.
 
 - Dinamik şerit yönetimi  
 - Bariyer animasyonları  
 - Senaryo ve stres testleri  
 - Gerçek zamanlı veri entegrasyonu  
 
-🎬 **Unity Simülasyon Videosu:**  
-https://www.youtube.com/watch?v=UNITY_SIMULATION_VIDEO_ID  
+![Unity Digital Twin Simulation](https://via.placeholder.com/900x450?text=Unity+Digital+Twin+Simulation)
 
 ---
 
 ### 📊 Proje Sunumu
 
-Projenin problem tanımı, sistem mimarisi, kullanılan teknolojiler ve elde edilen sonuçlar bu sunumda detaylı olarak ele alınmıştır.
+Projenin problem tanımı, sistem mimarisi, kullanılan teknolojiler ve elde edilen sonuçlar sunumda detaylı olarak ele alınmıştır.
 
 - Problem tanımı ve motivasyon  
 - Sistem mimarisi ve veri akışı  
@@ -108,7 +107,8 @@ Projenin problem tanımı, sistem mimarisi, kullanılan teknolojiler ve elde edi
 - Demo senaryoları ve sonuçlar  
 
 📑 **Sunum Linki:**  
-https://presentation-link-buraya  
+https://prezi.com/view/axPSJ3i9x84WKjyZmyRa/?referral_token=-Yp1b-lnB3FN
+
 
 
 ## ✨ Özellikler
