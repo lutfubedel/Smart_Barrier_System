@@ -19,36 +19,44 @@ Bu proje, özellikle yoğun saatlerde (peak hours) trafik sıkışıklığını 
 Sistem, sahadan gelen verilerin işlenmesi, karar verilmesi ve fiziksel/dijital ortamlara yansıtılması prensibiyle çalışır.
 
 ```mermaid
-graph TD
-    subgraph Field_Layer["Saha ve Donanım Katmanı"]
-        CAM["IP Kamera / WebCam"]
-        ESP["IoT Cihazı (ESP32 / Arduino)"]
-        BAR["Fiziksel Bariyer / Motorlar"]
-    end
+graph LR
+    %% Katman Başlıkları
+    FL["Saha ve Donanım Katmanı"]
+    PL["İşleme ve Yapay Zeka"]
+    AL["Kullanıcı ve Simülasyon"]
 
-    subgraph Processing_Layer["İşleme ve Yapay Zeka"]
-        YOLO["Python + YOLOv8"]
-        SERVER["Backend / MQTT Broker"]
-        DB["Veritabanı"]
-    end
+    %% Saha
+    CAM["IP Kamera / WebCam"]
+    ESP["IoT Cihazı (ESP32 / Arduino)"]
+    BAR["Fiziksel Bariyer / Motor"]
 
-    subgraph Application_Layer["Kullanıcı ve Simülasyon"]
-        WEB["React + TypeScript Dashboard"]
-        UNITY["Unity 3D Digital Twin"]
-    end
+    %% İşleme
+    YOLO["Python + YOLOv8"]
+    SERVER["Backend / MQTT Broker"]
+    DB["Veritabanı"]
 
+    %% Uygulama
+    WEB["React + TypeScript Dashboard"]
+    UNITY["Unity 3D Digital Twin"]
+
+    %% Akış
     CAM --> YOLO
     YOLO --> SERVER
     SERVER --> DB
-
     SERVER --> ESP
     ESP --> BAR
-
     WEB --> SERVER
     SERVER --> WEB
-
     SERVER --> UNITY
     UNITY --> SERVER
+
+    %% Görsel Stil
+    classDef title fill:#2b2b2b,color:#ffffff,stroke:#999,stroke-width:1px
+    classDef node fill:#1e1e1e,color:#ffffff,stroke:#777
+
+    class FL,PL,AL title
+    class CAM,ESP,BAR,YOLO,SERVER,DB,WEB,UNITY node
+
 
 ```
 
