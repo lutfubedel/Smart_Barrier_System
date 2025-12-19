@@ -77,7 +77,7 @@ Bu bölümde, web tabanlı kontrol paneli üzerinden anlık trafik yoğunluğu t
 - Karar mekanizmasının görsel çıktıları  
 
 🎬 **Demo Videosu:**  
-https://www.youtube.com/watch?v=WEB_AI_DEMO_VIDEO_ID  
+[https://www.youtube.com/watch?v=WEB_AI_DEMO_VIDEO_ID  ](https://raw.githubusercontent.com/lutfubedel/Smart_Barrier_System/main/yolo/trafik_analiz_sonucu.mp4)
 
 🔗 **Web Dashboard Linki:**  
 https://smart-barrier-demo-site-link  
